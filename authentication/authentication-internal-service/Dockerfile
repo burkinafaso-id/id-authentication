@@ -33,6 +33,11 @@ ARG is_glowroot
 # can be passed during Docker build as build time environment for artifactory URL
 ARG artifactory_url
 
+# can be passed during Docker build as build time environment for CloudHSM IP Address
+ARG cloudhsm_ip_address
+
+ARG cloudhsm_keystore_impl_url
+
 # environment variable to pass active profile such as DEV, QA etc at docker runtime
 ENV active_profile_env=${active_profile}
 
@@ -59,6 +64,12 @@ ENV demosdk_zip_file_path=${demosdk_zip_path}
 # environment variable to pass hsm client zip file path, at docker runtime
 #ENV zip_file_path=${client_zip_path}
 ENV hsm_zip_file_path=${hsm_client_zip_path}
+
+# environment variable to pass cloudhsm_ip_address, at docker runtime
+ENV cloudhsm_ip_address_env=${cloudhsm_ip_address}
+
+# environment variable to pass KeyImplementation for cloudhsm, at docker runtime
+ENV cloudhsm_keystore_impl_url_env = ${cloudhsm_keystore_impl_url}
 
 # can be passed during Docker build as build time environment for github branch to pickup configuration from.
 ARG container_user=mosip
